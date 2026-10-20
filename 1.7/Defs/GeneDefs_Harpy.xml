@@ -193,12 +193,12 @@
     <selectionWeight>0</selectionWeight>
   </GeneDef>
 
-  <!-- Poultry harpies: lay an unfertilized chicken egg every day, like a hen. Uses the framework's
+  <!-- Poultry harpies: lay three unfertilized chicken eggs every day. Uses the framework's
        production gene (same comp as the centaur wool genes); the amount scales up with body size. -->
   <GeneDef>
     <defName>DZ_HarpyChickenEggs</defName>
     <label>daily eggs</label>
-    <description>Carriers of this gene lay an unfertilized chicken egg about once a day, whether or not they have a mate.</description>
+    <description>Carriers of this gene lay three unfertilized chicken eggs about once a day, whether or not they have a mate.</description>
     <iconPath>DZ/Harpy/UI/Gene_HarpyChickenEggs</iconPath>
     <displayCategory>Reproduction</displayCategory>
     <displayOrderInCategory>120</displayOrderInCategory>
@@ -210,7 +210,7 @@
       <li Class="BigAndSmall.ProductionGeneSettings">
         <product>EggChickenUnfertilized</product>
         <frequencyInDays>1</frequencyInDays>
-        <baseAmount>1</baseAmount>
+        <baseAmount>3</baseAmount>
         <progressName>Growing egg</progressName>
         <saveKey>DZ_HarpyChickenEggProduction</saveKey>
       </li>

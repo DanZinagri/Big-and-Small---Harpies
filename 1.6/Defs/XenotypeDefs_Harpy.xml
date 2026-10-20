@@ -33,6 +33,8 @@
       <li>Hair_BrightRed</li>
       <li>DZ_Hair_DeepRed</li>
       <li MayRequire="RedMattis.BigSmall.Core">Hair_MediumBlue</li>
+      <!-- voice: Animal Voice Genes mods (optional) -->
+      <li MayRequire="Pacca.GeneVoiceAnimalsOdyssey">PaccaVoicePeacock</li>
     </genes>
   </XenotypeDef>
 
@@ -64,6 +66,8 @@
       <li>Hair_ReddishBrown</li>
       <li>Hair_DarkSaturatedReddish</li>
       <li MayRequire="sarg.alphagenes">AG_Hair_Golden</li>
+      <!-- voice: Animal Voice Genes mods (optional) -->
+      <li MayRequire="Pacca.GeneVoiceAnimalsOdyssey">PaccaVoicePenguin</li>
     </genes>
   </XenotypeDef>
 
@@ -98,6 +102,8 @@
       <li MayRequire="RedMattis.BigSmall.Core">Hair_MediumRed</li>
       <li>Hair_SnowWhite</li>
       <li MayRequire="sinner.softerhaircolors">Soft_Hair_Auburn</li>
+      <!-- voice: Animal Voice Genes mods (optional) -->
+      <li MayRequire="Pacca.GeneVoiceAnimalsOdyssey">PaccaVoiceHeron</li>
     </genes>
   </XenotypeDef>
 
@@ -129,6 +135,8 @@
       <li>Hair_MidBlack</li>
       <li>Hair_DarkSaturatedReddish</li>
       <li>Hair_DarkBrown</li>
+      <!-- voice: Animal Voice Genes mods (optional) -->
+      <li MayRequire="Pacca.GeneVoiceAnimalsVanilla">PaccaVoiceVanillaChicken</li>
     </genes>
   </XenotypeDef>
 
@@ -162,6 +170,8 @@
       <li>Skin_SheerWhite</li>
       <li>DZ_Hair_RavenBlack</li>
       <li>DZ_HarpySerpentEnmity</li>
+      <!-- voice: Animal Voice Genes mods (optional) -->
+      <li MayRequire="Pacca.GeneVoiceAnimalsOdyssey">PaccaVoiceCrow</li>
     </genes>
   </XenotypeDef>
 
@@ -194,6 +204,8 @@
       <li>DZ_PhoenixResurgence</li>
       <li>DZ_Hair_DeepRed</li>
       <li>DZ_HarpySerpentEnmity</li>
+      <!-- voice: Animal Voice Genes mods (optional) -->
+      <li MayRequire="Pacca.GeneVoiceAnimalsOdyssey">PaccaVoiceMacaw</li>
     </genes>
   </XenotypeDef>
 </Defs>
