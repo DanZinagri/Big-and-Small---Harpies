@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Serpent enmity: harpies dislike snake-people. One-sided: only the harpy gets the thought.
+       Modelled on Seraphim Xenotype Reborn's angelic/demonic enmity (marker gene + social thought).
+       BigSmallHarpies.ThoughtWorker_SerpentEnmity: the pawn needs a requiredGenes gene; the other pawn
+       counts as a serpent if its race body contains a hatedBodyParts part (the framework's serpent
+       lower body, which every B&S lamia race has) or it carries a hatedGenes gene (empty for now;
+       add other mods' snake genes here with MayRequire). Only applies once the two know each other.
+       Vanilla caches social thoughts per pawn pair; the worker caches the body check per BodyDef. -->
+
+  <GeneDef>
+    <defName>DZ_HarpySerpentEnmity</defName>
+    <label>serpent enmity</label>
+    <description>Carriers of this gene have an instinctive hatred of serpents, born of an ancient rivalry. They think poorly of anyone with a snake's body.</description>
+    <iconPath>DZ/Harpy/UI/Gene_HarpySerpentEnmity</iconPath>
+    <displayCategory>Miscellaneous</displayCategory>
+    <displayOrderInCategory>782</displayOrderInCategory>
+    <biostatCpx>0</biostatCpx>
+    <biostatMet>0</biostatMet>
+    <selectionWeight>0</selectionWeight>
+    <customEffectDescriptions>
+      <li>-50 opinion of anyone with a serpent's body.</li>
+    </customEffectDescriptions>
+  </GeneDef>
+
+  <ThoughtDef>
+    <defName>DZ_HarpySerpentEnmity</defName>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>BigSmallHarpies.ThoughtWorker_SerpentEnmity</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
+    <developmentalStageFilter>Child, Adult</developmentalStageFilter>
+    <stages>
+      <li>
+        <label>serpent</label>
+        <description>A slithering serpent. Every instinct I have says to keep it at wing's length.</description>
+        <baseOpinionOffset>-50</baseOpinionOffset>
+      </li>
+    </stages>
+    <modExtensions>
+      <li Class="BigSmallHarpies.SerpentEnmityExtension">
+        <requiredGenes>
+          <li>DZ_HarpySerpentEnmity</li>
+        </requiredGenes>
+        <hatedBodyParts>
+          <li>BS_SnakeBody</li>
+          <li>BS_Mech_SnakeBody</li>
+        </hatedBodyParts>
+        <hatedGenes>
+        </hatedGenes>
+      </li>
+    </modExtensions>
+  </ThoughtDef>
+
+</Defs>

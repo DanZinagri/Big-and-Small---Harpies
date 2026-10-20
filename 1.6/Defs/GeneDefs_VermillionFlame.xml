@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Read by the DLL (BigSmallHarpies.dll, Verb_MeleeAttackDamage.ApplyMeleeDamageToTarget postfix).
+       Copy of Alpha Skills' AS_FireStarter: after every landed melee hit, weapon or natural, this is
+       the chance to deal 10 flame damage, which may then set the target alight. -->
+  <StatDef>
+    <defName>DZ_HarpyMeleeIgniteChance</defName>
+    <label>melee ignite chance</label>
+    <description>The chance that a landed melee hit also scorches the target with flame, which may set it on fire.</description>
+    <category>PawnCombat</category>
+    <defaultBaseValue>0</defaultBaseValue>
+    <minValue>0</minValue>
+    <maxValue>1</maxValue>
+    <hideAtValue>0</hideAtValue>
+    <toStringStyle>PercentOne</toStringStyle>
+    <toStringStyleUnfinalized>PercentTwo</toStringStyleUnfinalized>
+    <disableIfSkillDisabled>Melee</disableIfSkillDisabled>
+  </StatDef>
+
+  <GeneDef>
+    <defName>DZ_VermillionFlame</defName>
+    <label>vermillion flame</label>
+    <description>Carriers of this gene burn with an inner fire. Their melee blows can scorch and ignite whatever they strike.</description>
+    <iconPath>UI/Icons/Genes/Gene_Firespew</iconPath>
+    <displayCategory>Miscellaneous</displayCategory>
+    <displayOrderInCategory>777</displayOrderInCategory>
+    <biostatCpx>1</biostatCpx>
+    <biostatMet>-1</biostatMet>
+    <selectionWeight>0</selectionWeight>
+    <statOffsets>
+      <DZ_HarpyMeleeIgniteChance>0.15</DZ_HarpyMeleeIgniteChance>
+    </statOffsets>
+  </GeneDef>
+
+</Defs>

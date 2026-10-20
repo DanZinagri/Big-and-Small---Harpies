@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Light, air-filled bones: fragile and weak at carrying, but quick. On every harpy xenotype.
+       Caravan carry: vanilla caravan capacity is body size x 35 with no stat, so it goes through VEF's
+       VEF_MassCarryCapacity (its worker starts from vanilla's capacity and VEF's MassUtility.Capacity
+       patch returns the stat), so x0.8 here really is -20% caravan mass. -->
+  <GeneDef>
+    <defName>DZ_HarpyHollowBones</defName>
+    <label>hollow bones</label>
+    <description>Carriers of this gene have light, hollow bones like a bird's. They are quicker on their feet and on the road, but blunt blows hurt them more and they cannot carry as much.</description>
+    <iconPath>DZ/Harpy/UI/Gene_HarpyHollowBones</iconPath>
+    <displayCategory>Miscellaneous</displayCategory>
+    <displayOrderInCategory>779</displayOrderInCategory>
+    <biostatCpx>1</biostatCpx>
+    <biostatMet>1</biostatMet>
+    <selectionWeight>0</selectionWeight>
+    <damageFactors>
+      <Blunt>1.2</Blunt>
+    </damageFactors>
+    <statFactors>
+      <MoveSpeed>1.2</MoveSpeed>
+      <CaravanBonusSpeedFactor>1.2</CaravanBonusSpeedFactor>
+      <CarryingCapacity>0.8</CarryingCapacity>
+      <VEF_MassCarryCapacity>0.8</VEF_MassCarryCapacity>
+    </statFactors>
+  </GeneDef>
+
+  <!-- Keen bird-of-prey eyes. On every harpy xenotype. +20% sight = capacity offset 0.2. -->
+  <GeneDef>
+    <defName>DZ_HarpyHawkeye</defName>
+    <label>hawkeye sight</label>
+    <description>Carriers of this gene have sharp, far-seeing eyes like a hawk's.</description>
+    <iconPath>DZ/Harpy/UI/Gene_HarpyHawkeye</iconPath>
+    <displayCategory>Miscellaneous</displayCategory>
+    <displayOrderInCategory>780</displayOrderInCategory>
+    <biostatCpx>1</biostatCpx>
+    <biostatMet>-1</biostatMet>
+    <selectionWeight>0</selectionWeight>
+    <capMods>
+      <li>
+        <capacity>Sight</capacity>
+        <offset>0.2</offset>
+      </li>
+    </capMods>
+  </GeneDef>
+
+  <!-- Bird brained: a milder slow study (vanilla Learning_Slow is x0.5 for met +2). On every harpy. -->
+  <GeneDef>
+    <defName>DZ_HarpyBirdBrained</defName>
+    <label>bird brained</label>
+    <description>Carriers of this gene are flighty and easily distracted. They learn new skills and knowledge more slowly.</description>
+    <iconPath>UI/Icons/Genes/Gene_SlowLearning</iconPath>
+    <displayCategory>Miscellaneous</displayCategory>
+    <displayOrderInCategory>781</displayOrderInCategory>
+    <biostatCpx>1</biostatCpx>
+    <biostatMet>1</biostatMet>
+    <selectionWeight>0</selectionWeight>
+    <statFactors>
+      <GlobalLearningFactor>0.8</GlobalLearningFactor>
+    </statFactors>
+  </GeneDef>
+
+</Defs>

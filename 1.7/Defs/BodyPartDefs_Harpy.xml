@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Wing parts that stand in for Arm / Hand / Finger on the harpy body.
+       Values mirror the vanilla parts they replace; importAllRecipesFrom lets
+       prosthetic and bionic arm/hand surgeries target the wings. -->
+
+  <BodyPartDef>
+    <defName>DZ_HarpyWing</defName>
+    <label>wing</label>
+    <hitPoints>30</hitPoints>
+    <skinCovered>true</skinCovered>
+    <canScarify>true</canScarify>
+    <tags>
+      <li>ManipulationLimbCore</li>
+      <li>Mirrored</li>
+    </tags>
+    <modExtensions>
+      <li Class="BigAndSmall.BodyPartExtension">
+        <importAllRecipesFrom><li>Arm</li></importAllRecipesFrom>
+      </li>
+    </modExtensions>
+  </BodyPartDef>
+
+  <BodyPartDef>
+    <defName>DZ_HarpyManus</defName>
+    <label>manus</label>
+    <hitPoints>20</hitPoints>
+    <frostbiteVulnerability>0.5</frostbiteVulnerability>
+    <skinCovered>true</skinCovered>
+    <canBeVacuumBurnt>false</canBeVacuumBurnt>
+    <tags>
+      <li>ManipulationLimbSegment</li>
+    </tags>
+    <modExtensions>
+      <li Class="BigAndSmall.BodyPartExtension">
+        <importAllRecipesFrom><li>Hand</li></importAllRecipesFrom>
+      </li>
+    </modExtensions>
+  </BodyPartDef>
+
+  <BodyPartDef>
+    <defName>DZ_HarpyDigit</defName>
+    <label>wing digit</label>
+    <hitPoints>8</hitPoints>
+    <frostbiteVulnerability>8</frostbiteVulnerability>
+    <pawnGeneratorCanAmputate>true</pawnGeneratorCanAmputate>
+    <skinCovered>true</skinCovered>
+    <canBeVacuumBurnt>false</canBeVacuumBurnt>
+    <tags>
+      <li>ManipulationLimbDigit</li>
+      <li>Mirrored</li>
+    </tags>
+    <modExtensions>
+      <li Class="BigAndSmall.BodyPartExtension">
+        <importAllRecipesFrom><li>Finger</li></importAllRecipesFrom>
+      </li>
+    </modExtensions>
+  </BodyPartDef>
+
+</Defs>

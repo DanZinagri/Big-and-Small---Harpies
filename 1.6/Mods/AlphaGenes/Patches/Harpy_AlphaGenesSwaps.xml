@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- Alpha Genes is loaded: xenotypes use its deep red hair instead of our identical copy, and our copy
+       goes on the Cherry Picker basics list when Cherry Picker is installed (see Defs/CherryPicker.xml).
+       success Always: no error if a user edit has removed the gene from every xenotype. -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/XenotypeDef/genes/li[text()="DZ_Hair_DeepRed"]</xpath>
+    <value>
+      <li>AG_Hair_DeepRed</li>
+    </value>
+    <success>Always</success>
+  </Operation>
+
+  <!-- MayRequire only works on a sequence item, not on a top-level Operation. -->
+  <Operation Class="PatchOperationSequence">
+    <operations>
+      <li Class="PatchOperationAdd" MayRequire="Owlchemist.CherryPicker">
+        <xpath>Defs/CherryPicker.DefList[defName="DZ_Harpies_CherryPicker_Basics"]/defs</xpath>
+        <value>
+          <li>GeneDef/DZ_Hair_DeepRed</li>
+        </value>
+      </li>
+    </operations>
+  </Operation>
+
+</Patch>

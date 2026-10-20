@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- BS_BodySwitch (framework, Biotech folder) supplies the BS_BodySwap exclusion tag and display category.
+       Our own exclusion tags append to it, so these genes also exclude the other Big and Small wing genes
+       and each other.
+       Shared by every harpy wing gene: wing art, race swap target, costs and the manipulation note.
+       Each child carries its OWN full PawnExtension (thingDefSwap included) instead of appending a
+       second one to a parent's, so B&S reads exactly one extension per gene. -->
+  <GeneDef ParentName="BS_BodySwitch" Name="DZ_HarpyWingsBase" Abstract="True">
+    <iconPath>DZ/Harpy/UI/Gene_HarpyWings</iconPath>
+    <iconColor>(0.75, 0.75, 0.75)</iconColor>
+    <displayOrderInCategory>150</displayOrderInCategory>
+    <biostatCpx>1</biostatCpx>
+    <biostatMet>2</biostatMet>
+    <selectionWeight>0</selectionWeight>
+    <exclusionTags>
+      <li>Wing</li>
+      <li>Wings</li>
+    </exclusionTags>
+    <customEffectDescriptions>
+      <li>Wings replace the arms: manipulation -25%</li>
+    </customEffectDescriptions>
+    <symbolPack>
+      <prefixSymbols>
+        <li><symbol>harpy</symbol></li>
+        <li><symbol>winged</symbol></li>
+      </prefixSymbols>
+    </symbolPack>
+    <renderNodeProperties>
+      <li>
+        <debugLabel>Harpy wings</debugLabel>
+        <parentTagDef>Body</parentTagDef>
+        <!-- Body worker: same 1.5-cell mesh as the body texture, hides with the body in bed.
+             Not AttachmentBody, which would rescale by bodyGraphicScale on top of the per-body-type art. -->
+        <workerClass>PawnRenderNodeWorker_Body</workerClass>
+        <!-- Fallback for body types without art (Baby, modded types): draw nothing. -->
+        <texPath>BS_Blank</texPath>
+        <!-- Same format as vanilla FurDefs: element name = BodyTypeDef, text = texture path. -->
+        <bodyTypeGraphicPaths>
+          <Male>DZ/Harpy/Wings/Male/dz_harpywing</Male>
+          <Female>DZ/Harpy/Wings/Female/dz_harpywing</Female>
+          <Thin>DZ/Harpy/Wings/Thin/dz_harpywing</Thin>
+          <Fat>DZ/Harpy/Wings/Fat/dz_harpywing</Fat>
+          <Hulk>DZ/Harpy/Wings/Hulk/dz_harpywing</Hulk>
+          <Child>DZ/Harpy/Wings/Child/dz_harpywing</Child>
+        </bodyTypeGraphicPaths>
+        <colorType>Hair</colorType>
+        <useSkinShader>false</useSkinShader>
+        <rotDrawMode>Fresh, Rotting</rotDrawMode>
+        <drawData>
+          <!-- Layers are absolute in the humanlike tree: body 0, body apparel 20-40, head 50.
+               South/east/west: over body and apparel, under the head and hair. North: behind the body. -->
+          <defaultData>
+            <layer>45</layer>
+          </defaultData>
+          <dataNorth>
+            <layer>-2</layer>
+          </dataNorth>
+        </drawData>
+      </li>
+    </renderNodeProperties>
+  </GeneDef>
+
+  <!-- Two families under the shared base. Each one carries the complete modExtensions list (race swap,
+       plus gliding for the flyers), and the per-xenotype genes below add no modExtensions of their own,
+       so B&S still sees exactly one PawnExtension per gene. -->
+
+  <!-- Flyers: glide over rough ground, plus the flying jump when Genes & More is loaded. -->
+  <GeneDef ParentName="DZ_HarpyWingsBase" Name="DZ_HarpyFlyingWingsBase" Abstract="True">
+    <customEffectDescriptions>
+      <li>Removes the movement speed penalty for traversing difficult terrain</li>
+    </customEffectDescriptions>
+    <!-- Flying jump lives in Genes & More; picked up only when that mod is loaded. -->
+    <abilities>
+      <li MayRequire="RedMattis.BigSmall.Core">BS_flying_jump</li>
+    </abilities>
+    <modExtensions>
+      <li Class="BigAndSmall.PawnExtension">
+        <thingDefSwap>DZ_Harpy</thingDefSwap>
+        <forceThingDefSwap>false</forceThingDefSwap>
+        <!-- Same gliding hediff the framework's other wing genes apply (VEF floating comp). -->
+        <applyBodyHediff>
+          <li>
+            <hediff>BS_Floating</hediff>
+          </li>
+        </applyBodyHediff>
+      </li>
+      <li MayRequire="pathfinding.framework" Class="PathfindingFramework.MovementExtension">
+        <movementDef>PF_Movement_Flying</movementDef>
+      </li>
+    </modExtensions>
+  </GeneDef>
+
+  <!-- Flightless: race swap only, no glide or jump. -->
+  <GeneDef ParentName="DZ_HarpyWingsBase" Name="DZ_HarpyFlightlessWingsBase" Abstract="True">
+    <modExtensions>
+      <li Class="BigAndSmall.PawnExtension">
+        <thingDefSwap>DZ_Harpy</thingDefSwap>
+        <forceThingDefSwap>false</forceThingDefSwap>
+      </li>
+    </modExtensions>
+  </GeneDef>
+
+  <!-- One wing gene per xenotype, so each can carry its own stats. All share the Wing/Wings and
+       BS_BodySwap exclusion tags, so a pawn only ever has one. Base cost is cpx 1 / met 2; size
+       changes move it by one step (smaller +1, larger -1). Only the harpy (smaller) and land harpy
+       (larger) change size. Body size uses the framework's
+       SM_BodySizeMultiplier stat. -->
+
+  <!-- Garudakin harpy (replaced the plain harpy 2026-10-19): small, light frames; their wind
+       abilities (AbilityDefs_GarudakinWind.xml) require this gene. -->
+  <GeneDef ParentName="DZ_HarpyFlyingWingsBase">
+    <defName>DZ_GarudakinHarpyWings</defName>
+    <label>garudakin wings</label>
+    <description>Carriers of this gene grow great feathered wings in place of their arms, strong enough to command the wind, and have small, light frames. The wings let them glide over rough ground, but with no proper hands their manipulation suffers.</description>
+    <biostatMet>3</biostatMet>
+    <statFactors>
+      <SM_BodySizeMultiplier>0.9</SM_BodySizeMultiplier>
+    </statFactors>
+  </GeneDef>
+
+  <!-- Land harpy: ostrich-like, larger than humans, very fast runners (+0.4 = twice vanilla fast runner). -->
+  <GeneDef ParentName="DZ_HarpyFlightlessWingsBase">
+    <defName>DZ_LandHarpyWings</defName>
+    <label>land harpy wings</label>
+    <description>Carriers of this gene grow feathered wings in place of their arms, too small to glide with. Their bodies are larger than a human's, with powerful running legs, but with no proper hands their manipulation suffers.</description>
+    <displayOrderInCategory>151</displayOrderInCategory>
+    <biostatMet>1</biostatMet>
+    <statOffsets>
+      <MoveSpeed>0.4</MoveSpeed>
+    </statOffsets>
+    <statFactors>
+      <SM_BodySizeMultiplier>1.2</SM_BodySizeMultiplier>
+    </statFactors>
+  </GeneDef>
+
+  <!-- Raptor harpy: eagle/hawk-like flyers, normal size; no unique stats yet. -->
+  <GeneDef ParentName="DZ_HarpyFlyingWingsBase">
+    <defName>DZ_RaptorHarpyWings</defName>
+    <label>raptor harpy wings</label>
+    <description>Carriers of this gene grow broad, powerful wings in place of their arms. The wings let them glide over rough ground, but with no proper hands their manipulation suffers.</description>
+    <displayOrderInCategory>152</displayOrderInCategory>
+  </GeneDef>
+
+  <!-- Poultry harpy: cannot fly and cannot run fast (reference art), so no glide and no speed bonus. -->
+  <GeneDef ParentName="DZ_HarpyFlightlessWingsBase">
+    <defName>DZ_PoultryHarpyWings</defName>
+    <label>poultry harpy wings</label>
+    <description>Carriers of this gene grow soft feathered wings in place of their arms, too weak to glide with. With no proper hands their manipulation suffers.</description>
+    <displayOrderInCategory>153</displayOrderInCategory>
+  </GeneDef>
+
+  <!-- Blood harpy: no unique stats yet. -->
+  <GeneDef ParentName="DZ_HarpyFlyingWingsBase">
+    <defName>DZ_BloodHarpyWings</defName>
+    <label>blood harpy wings</label>
+    <description>Carriers of this gene grow large dark-feathered wings in place of their arms. The wings let them glide over rough ground, but with no proper hands their manipulation suffers.</description>
+    <displayOrderInCategory>154</displayOrderInCategory>
+  </GeneDef>
+
+  <!-- Vermillion harpy: fireproof. No fire damage (Flame x0) and cannot be set alight
+       (Flammability x0; vanilla's fire resistant gene uses x0.1 and Flame x0.25). -->
+  <GeneDef ParentName="DZ_HarpyFlyingWingsBase">
+    <defName>DZ_VermillionHarpyWings</defName>
+    <label>vermillion harpy wings</label>
+    <description>Carriers of this gene grow large flame-coloured wings in place of their arms and are untouched by fire. The wings let them glide over rough ground, but with no proper hands their manipulation suffers.</description>
+    <displayOrderInCategory>155</displayOrderInCategory>
+    <statFactors>
+      <Flammability>0</Flammability>
+    </statFactors>
+    <damageFactors>
+      <Flame>0</Flame>
+    </damageFactors>
+  </GeneDef>
+
+  <!-- Poultry harpies are very cowardly (reference art): forces vanilla's Wimp trait, the same way
+       vanilla's kind instinct gene forces Kind. Negative trait, so it pays back metabolism. -->
+  <GeneDef>
+    <defName>DZ_HarpyCowardly</defName>
+    <label>cowardly</label>
+    <description>Carriers of this gene are timid by nature. Even a little pain will make them freeze up.</description>
+    <iconPath>UI/Icons/Genes/Gene_ExtraPain</iconPath>
+    <displayCategory>Miscellaneous</displayCategory>
+    <displayOrderInCategory>778</displayOrderInCategory>
+    <forcedTraits>
+      <li>
+        <def>Wimp</def>
+      </li>
+    </forcedTraits>
+    <biostatCpx>1</biostatCpx>
+    <biostatMet>1</biostatMet>
+    <selectionWeight>0</selectionWeight>
+  </GeneDef>
+
+  <!-- Poultry harpies: lay an unfertilized chicken egg every day, like a hen. Uses the framework's
+       production gene (same comp as the centaur wool genes); the amount scales up with body size. -->
+  <GeneDef>
+    <defName>DZ_HarpyChickenEggs</defName>
+    <label>daily eggs</label>
+    <description>Carriers of this gene lay an unfertilized chicken egg about once a day, whether or not they have a mate.</description>
+    <iconPath>DZ/Harpy/UI/Gene_HarpyChickenEggs</iconPath>
+    <displayCategory>Reproduction</displayCategory>
+    <displayOrderInCategory>120</displayOrderInCategory>
+    <geneClass>BigAndSmall.ProductionGene</geneClass>
+    <biostatCpx>1</biostatCpx>
+    <biostatMet>-1</biostatMet>
+    <selectionWeight>0</selectionWeight>
+    <modExtensions>
+      <li Class="BigAndSmall.ProductionGeneSettings">
+        <product>EggChickenUnfertilized</product>
+        <frequencyInDays>1</frequencyInDays>
+        <baseAmount>1</baseAmount>
+        <progressName>Growing egg</progressName>
+        <saveKey>DZ_HarpyChickenEggProduction</saveKey>
+      </li>
+    </modExtensions>
+  </GeneDef>
+
+  <!-- Oviparous reproduction. Own copy of Alpha Genes' egg laying (AG_EggLaying), built on VEF's
+       human egg layer so it needs neither Alpha Genes nor VRE Saurid. VEF finds the comp by type, so
+       its pregnancy hooks (cancel live pregnancy, fertilize the next egg) work with this hediff too.
+       The Egglaying tag matches AG_EggLaying and VRESaurids_Oviparous. Costs match VRE Saurid's gene
+       (cpx 2, met -1) rather than Alpha Genes' (3 / -3), so the swap below never changes a xenotype's
+       totals. When VRE Saurid is loaded the harpy xenotypes swap this gene for its oviparous gene
+       (Mods/VRESaurid). No swap to Alpha Genes' version (user, 2026-10-19). -->
+  <GeneDef>
+    <defName>DZ_HarpyEggLaying</defName>
+    <label>egg laying</label>
+    <description>Carriers of this gene reproduce by laying eggs. A fertilized egg must be kept warm, but not hot, until it hatches.</description>
+    <iconPath>DZ/Harpy/UI/Gene_HarpyEggLaying</iconPath>
+    <displayCategory>Reproduction</displayCategory>
+    <displayOrderInCategory>115.3</displayOrderInCategory>
+    <biostatCpx>2</biostatCpx>
+    <biostatMet>-1</biostatMet>
+    <selectionWeight>0</selectionWeight>
+    <exclusionTags>
+      <li>Egglaying</li>
+    </exclusionTags>
+    <customEffectDescriptions>
+      <li>Mother won't be subject to pregnancy moods, morning sickness, etc.</li>
+      <li>Once laid, the egg will be vulnerable until hatching. Harpy eggs are not edible.</li>
+      <li>The whole process takes longer (24 days total).</li>
+    </customEffectDescriptions>
+    <modExtensions>
+      <li Class="VEF.Genes.GeneExtension">
+        <hediffToWholeBody>DZ_HarpyEggLayer</hediffToWholeBody>
+      </li>
+    </modExtensions>
+  </GeneDef>
+
+</Defs>

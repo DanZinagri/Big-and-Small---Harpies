@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Blood frenzy: hemogen-powered self-buff in the style of VPE's warlord focus psycasts (blade focus
+       = MeleeCooldownFactor 0.5, firing focus = RangedCooldownFactor 0.2; both vanilla stats).
+       Here both cooldowns are halved. Vanilla only, same pattern as the Catfolk feral sprint:
+       CompAbilityEffect_GiveHediff copies Ability_Duration (seconds) into the hediff's Disappears comp.
+       30 s = 1800 ticks (VPE adrenaline rush length). Cooldown 2500 ticks = 1 in-game hour.
+       Costs 20 hemogen (vanilla piercing spine's cost). AI does not cast it. -->
+
+  <AbilityDef>
+    <defName>DZ_BloodFrenzy</defName>
+    <label>blood frenzy</label>
+    <description>Burn hemogen to flood the body with stolen vitality, attacking twice as fast in melee and at range for a short time.</description>
+    <iconPath>DZ/Harpy/UI/Ability_BloodFrenzy</iconPath>
+    <category>Sanguophage</category>
+    <displayOrder>210</displayOrder>
+    <cooldownTicksRange>2500</cooldownTicksRange>
+    <hostile>false</hostile>
+    <targetRequired>false</targetRequired>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+    <aiCanUse>false</aiCanUse>
+    <statBases>
+      <Ability_Duration>30</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <warmupTime>0.25</warmupTime>
+      <range>0.9</range>
+      <drawAimPie>false</drawAimPie>
+      <requireLineOfSight>false</requireLineOfSight>
+      <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+        <canTargetPawns>false</canTargetPawns>
+        <canTargetLocations>false</canTargetLocations>
+        <canTargetBuildings>false</canTargetBuildings>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityHemogenCost">
+        <hemogenCost>0.2</hemogenCost>
+      </li>
+      <li Class="CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>DZ_BloodFrenzy</hediffDef>
+        <replaceExisting>true</replaceExisting>
+        <onlyApplyToSelf>true</onlyApplyToSelf>
+      </li>
+    </comps>
+  </AbilityDef>
+
+  <HediffDef>
+    <defName>DZ_BloodFrenzy</defName>
+    <label>blood frenzy</label>
+    <description>Burning hemogen for speed. Melee and ranged attacks recover twice as fast until the frenzy fades.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <everCurableByItem>false</everCurableByItem>
+    <defaultLabelColor>(0.85, 0.2, 0.2)</defaultLabelColor>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <statFactors>
+          <MeleeCooldownFactor>0.5</MeleeCooldownFactor>
+          <RangedCooldownFactor>0.5</RangedCooldownFactor>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- Vanilla hemogen ability gene layout (piercing spine): Hemogen category, Hemogenic prerequisite
+       (shown in the gene UI), met -1. -->
+  <GeneDef>
+    <defName>DZ_BloodFrenzy</defName>
+    <label>blood frenzy</label>
+    <description>Carriers can burn hemogen to enter a brief frenzy, attacking twice as fast in melee and at range.</description>
+    <iconPath>DZ/Harpy/UI/Ability_BloodFrenzy</iconPath>
+    <prerequisite>Hemogenic</prerequisite>
+    <displayCategory>Hemogen</displayCategory>
+    <abilities>
+      <li>DZ_BloodFrenzy</li>
+    </abilities>
+    <descriptionHyperlinks>
+      <AbilityDef>DZ_BloodFrenzy</AbilityDef>
+    </descriptionHyperlinks>
+    <biostatCpx>1</biostatCpx>
+    <biostatMet>-1</biostatMet>
+    <selectionWeight>0</selectionWeight>
+  </GeneDef>
+
+</Defs>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Talons on the feet. Humanlikes have no foot attack in vanilla (only fists, teeth, head), so this
+       follows the Catfolk claws pattern: the framework's PawnExtension.applyPartHediff puts one talon
+       hediff on each Foot, and the hediff's VerbGiver supplies the melee tool. Losing a foot loses
+       that talon. Two entries = two feet. -->
+  <GeneDef>
+    <defName>DZ_HarpyTalons</defName>
+    <label>harpy talons</label>
+    <description>Carriers of this gene have hooked talons on their bird-like feet, which they use to slash at enemies.</description>
+    <iconPath>DZ/Harpy/UI/Gene_HarpyTalons</iconPath>
+    <displayCategory>Miscellaneous</displayCategory>
+    <displayOrderInCategory>776</displayOrderInCategory>
+    <biostatCpx>1</biostatCpx>
+    <biostatMet>-1</biostatMet>
+    <selectionWeight>0</selectionWeight>
+    <modExtensions>
+      <li Class="BigAndSmall.PawnExtension">
+        <applyPartHediff>
+          <li>
+            <hediff>DZ_HarpyTalons</hediff>
+            <bodyparts>
+              <li>Foot</li>
+              <li>Foot</li>
+            </bodyparts>
+          </li>
+        </applyPartHediff>
+      </li>
+    </modExtensions>
+  </GeneDef>
+
+  <!-- Tool values sit between a human fist (8.2 blunt) and the Catfolk claws (11 cut, AP 0.2). -->
+  <HediffDef>
+    <defName>DZ_HarpyTalons</defName>
+    <label>talons</label>
+    <description>Hooked talons on a bird-like foot.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <isBad>false</isBad>
+    <comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>talons</label>
+            <capacities>
+              <li>Cut</li>
+            </capacities>
+            <power>10</power>
+            <cooldownTime>2</cooldownTime>
+            <armorPenetration>0.15</armorPenetration>
+          </li>
+        </tools>
+      </li>
+    </comps>
+    <addedPartProps>
+      <betterThanNatural>false</betterThanNatural>
+    </addedPartProps>
+  </HediffDef>
+
+</Defs>

@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <XenotypeDef>
+    <defName>DZ_GarudakinHarpy</defName>
+    <label>garudakin harpy</label>
+    <description>Small, light harpies descended from the legendary Garuda, whose great wings command the wind itself. They glide easily over rough ground and can hurl blasts of wind that knock enemies aside, but manage tools and fine work poorly.</description>
+    <iconPath>DZ/Harpy/UI/Gene_HarpyWings</iconPath>
+    <inheritable>true</inheritable>
+    <combatPowerFactor>1</combatPowerFactor>
+    <genes>
+      <li>DZ_GarudakinHarpyWings</li>
+      <li>Body_FemaleOnly</li>
+      <li>Body_Standard</li>
+      <li>Body_Thin</li>
+      <li>MinTemp_SmallIncrease</li>
+      <li MayRequire="sarg.alphagenes">AG_ColdSlowness</li>
+      <li>DZ_HarpyEggLaying</li>
+      <li>DZ_HarpyTalons</li>
+      <li>DZ_HarpyBirdBrained</li>
+      <li>DZ_GarudakinWindblast</li>
+      <li>DZ_GarudakinWindstorm</li>
+      <li>DZ_HarpyHollowBones</li>
+      <li>DZ_HarpyHawkeye</li>
+      <li>DZ_HarpySerpentEnmity</li>
+      <!-- hair colour: one of these is picked per pawn -->
+      <li>Hair_LightBlue</li>
+      <li>Hair_LightTeal</li>
+      <li>Hair_LightGreen</li>
+      <li MayRequire="RedMattis.BigSmall.Core">BS_MossGreenHair</li>
+      <li MayRequire="RedMattis.BigSmall.Core">BS_BurgundyHair</li>
+      <li>Hair_LightOrange</li>
+      <li>Hair_BrightRed</li>
+      <li>DZ_Hair_DeepRed</li>
+      <li MayRequire="RedMattis.BigSmall.Core">Hair_MediumBlue</li>
+    </genes>
+  </XenotypeDef>
+
+  <XenotypeDef>
+    <defName>DZ_LandHarpy</defName>
+    <label>land harpy</label>
+    <description>Humanlikes whose arms have become broad feathered wings. Their wings are too small to glide with, so they have become fast runners instead. They strike with their wings, but manage tools and fine work poorly.</description>
+    <iconPath>DZ/Harpy/UI/Gene_HarpyWings</iconPath>
+    <inheritable>true</inheritable>
+    <combatPowerFactor>1</combatPowerFactor>
+    <genes>
+      <li>DZ_LandHarpyWings</li>
+      <li>Body_FemaleOnly</li>
+      <li>Body_Standard</li>
+      <li>Body_Thin</li>
+      <li>MinTemp_SmallIncrease</li>
+      <li MayRequire="sarg.alphagenes">AG_ColdSlowness</li>
+      <li>DZ_HarpyEggLaying</li>
+      <li>DZ_HarpyTalons</li>
+      <li>DZ_HarpyBirdBrained</li>
+      <li>DarkVision</li>
+      <li>DZ_HarpyHollowBones</li>
+      <li>DZ_HarpyHawkeye</li>
+      <li>DZ_HarpySerpentEnmity</li>
+      <!-- hair colour: one of these is picked per pawn -->
+      <li>Hair_Blonde</li>
+      <li>Hair_SandyBlonde</li>
+      <li>Hair_LightOrange</li>
+      <li>Hair_ReddishBrown</li>
+      <li>Hair_DarkSaturatedReddish</li>
+      <li MayRequire="sarg.alphagenes">AG_Hair_Golden</li>
+    </genes>
+  </XenotypeDef>
+
+  <XenotypeDef>
+    <defName>DZ_RaptorHarpy</defName>
+    <label>raptor harpy</label>
+    <description>Humanlikes whose arms have become broad feathered wings. They glide easily over rough ground and strike with their wings, but manage tools and fine work poorly.</description>
+    <iconPath>DZ/Harpy/UI/Gene_HarpyWings</iconPath>
+    <inheritable>true</inheritable>
+    <combatPowerFactor>1</combatPowerFactor>
+    <genes>
+      <li>DZ_RaptorHarpyWings</li>
+      <li>Body_FemaleOnly</li>
+      <li>Body_Standard</li>
+      <li>Body_Thin</li>
+      <li>MinTemp_SmallIncrease</li>
+      <li MayRequire="sarg.alphagenes">AG_ColdSlowness</li>
+      <li>DZ_HarpyEggLaying</li>
+      <li>DZ_HarpyTalons</li>
+      <li>DZ_HarpyBirdBrained</li>
+      <li>DarkVision</li>
+      <li>DZ_HarpyHollowBones</li>
+      <li>DZ_HarpyHawkeye</li>
+      <li>MeleeDamage_Strong</li>
+      <li MayRequire="RedMattis.BigSmall.Core">BS_Diet_Carnivore</li>
+      <li>DZ_HarpySerpentEnmity</li>
+      <!-- hair colour: one of these is picked per pawn -->
+      <li>Hair_DarkBrown</li>
+      <li>Hair_DarkSaturatedReddish</li>
+      <li>Hair_DarkReddish</li>
+      <li>Hair_MidBlack</li>
+      <li MayRequire="RedMattis.BigSmall.Core">Hair_MediumRed</li>
+      <li>Hair_SnowWhite</li>
+      <li MayRequire="sinner.softerhaircolors">Soft_Hair_Auburn</li>
+    </genes>
+  </XenotypeDef>
+
+  <XenotypeDef>
+    <defName>DZ_PoultryHarpy</defName>
+    <label>poultry harpy</label>
+    <description>Humanlikes whose arms have become broad feathered wings. Their wings are too weak to glide with and they are slow runners. They lay eggs almost every day, and they are very cowardly. They strike with their wings, but manage tools and fine work poorly.</description>
+    <iconPath>DZ/Harpy/UI/Gene_HarpyWings</iconPath>
+    <inheritable>true</inheritable>
+    <combatPowerFactor>1</combatPowerFactor>
+    <genes>
+      <li>DZ_PoultryHarpyWings</li>
+      <li>Body_FemaleOnly</li>
+      <li>Body_Standard</li>
+      <li>Body_Thin</li>
+      <li>MinTemp_SmallIncrease</li>
+      <li MayRequire="sarg.alphagenes">AG_ColdSlowness</li>
+      <li>DZ_HarpyEggLaying</li>
+      <li>DZ_HarpyTalons</li>
+      <li>DZ_HarpyBirdBrained</li>
+      <li>DZ_HarpyHollowBones</li>
+      <li>DZ_HarpyHawkeye</li>
+      <li>DZ_HarpyChickenEggs</li>
+      <li>DZ_HarpyCowardly</li>
+      <li>DZ_HarpySerpentEnmity</li>
+      <!-- hair colour: one of these is picked per pawn -->
+      <li>Hair_SnowWhite</li>
+      <li>Hair_Gray</li>
+      <li>Hair_MidBlack</li>
+      <li>Hair_DarkSaturatedReddish</li>
+      <li>Hair_DarkBrown</li>
+    </genes>
+  </XenotypeDef>
+
+  <!-- No cold weakness on this one (user, 2026-10-19). -->
+  <XenotypeDef>
+    <defName>DZ_BloodHarpy</defName>
+    <label>blood harpy</label>
+    <description>Humanlikes whose arms have become broad feathered wings and whose bodies run on hemogen. They glide easily over rough ground and strike with their wings, but manage tools and fine work poorly.</description>
+    <iconPath>DZ/Harpy/UI/Gene_HarpyWings</iconPath>
+    <inheritable>true</inheritable>
+    <combatPowerFactor>1</combatPowerFactor>
+    <genes>
+      <li>DZ_BloodHarpyWings</li>
+      <li>Body_FemaleOnly</li>
+      <li>Body_Standard</li>
+      <li>Body_Thin</li>
+      <li>DZ_HarpyEggLaying</li>
+      <li>DZ_HarpyTalons</li>
+      <li>DZ_HarpyBirdBrained</li>
+      <li>DiseaseFree</li>
+      <li>TotalHealing</li>
+      <li>Ageless</li>
+      <li MayRequire="RedMattis.BigSmall.Core">BS_TrulyAgeless</li>
+      <li>ArchiteMetabolism</li>
+      <li MayRequire="RedMattis.BigSmall.Core">BS_NoFood_Hemogenic</li>
+      <li>DZ_HarpyHollowBones</li>
+      <li>DZ_HarpyHawkeye</li>
+      <li>Hemogenic</li>
+      <li>Bloodfeeder</li>
+      <li>DZ_BloodFrenzy</li>
+      <li>Skin_SheerWhite</li>
+      <li>DZ_Hair_RavenBlack</li>
+      <li>DZ_HarpySerpentEnmity</li>
+    </genes>
+  </XenotypeDef>
+
+  <!-- Revival needs Anomaly (DZ_VermillionRebirth, GeneDefs_Rebirth.xml); without it this is a plain harpy. -->
+  <XenotypeDef>
+    <defName>DZ_VermillionHarpy</defName>
+    <label>vermillion harpy</label>
+    <description>Humanlikes whose arms have become broad feathered wings, carrying archotech machines that rebuild them after death. They glide easily over rough ground and strike with their wings, but manage tools and fine work poorly.</description>
+    <iconPath>DZ/Harpy/UI/Gene_HarpyWings</iconPath>
+    <inheritable>true</inheritable>
+    <combatPowerFactor>1</combatPowerFactor>
+    <genes>
+      <li>DZ_VermillionHarpyWings</li>
+      <li>Body_FemaleOnly</li>
+      <li>Body_Standard</li>
+      <li>Body_Thin</li>
+      <li>MinTemp_SmallIncrease</li>
+      <li MayRequire="sarg.alphagenes">AG_ColdSlowness</li>
+      <li>DZ_HarpyEggLaying</li>
+      <li>DZ_HarpyTalons</li>
+      <li>DZ_HarpyBirdBrained</li>
+      <li>DiseaseFree</li>
+      <li>TotalHealing</li>
+      <li>Ageless</li>
+      <li MayRequire="RedMattis.BigSmall.Core">BS_TrulyAgeless</li>
+      <li>DZ_HarpyHollowBones</li>
+      <li>DZ_HarpyHawkeye</li>
+      <li MayRequire="Ludeon.RimWorld.Anomaly">DZ_VermillionRebirth</li>
+      <li>DZ_VermillionFlame</li>
+      <li>DZ_PhoenixResurgence</li>
+      <li>DZ_Hair_DeepRed</li>
+      <li>DZ_HarpySerpentEnmity</li>
+    </genes>
+  </XenotypeDef>
+</Defs>

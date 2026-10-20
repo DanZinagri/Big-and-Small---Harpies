@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- BS_Alt lets the framework substitute HAR's ThingDef_AlienRace when Humanoid Alien Races is loaded. -->
+  <ThingDef ParentName="Human" BS_Alt="ThingDef_AlienRace">
+    <defName>DZ_Harpy</defName>
+    <label>harpy</label>
+    <description>A humanlike whose arms have become large feathered wings. The wings can grip and strike, but lack the fine control of hands.</description>
+    <!-- Human's fists become wing strikes; teeth and head are unchanged. -->
+    <tools Inherit="False">
+      <li>
+        <label>left wing</label>
+        <labelNoLocation>wing</labelNoLocation>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8.2</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>14</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
+      </li>
+      <li>
+        <label>right wing</label>
+        <labelNoLocation>wing</labelNoLocation>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8.2</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>14</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
+      </li>
+      <li>
+        <label>teeth</label>
+        <capacities>
+          <li>Bite</li>
+        </capacities>
+        <power>8.2</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+        <chanceFactor>0.07</chanceFactor>
+        <soundMeleeHit>Pawn_Melee_HumanBite_Hit</soundMeleeHit>
+        <soundMeleeMiss>Pawn_Melee_HumanBite_Miss</soundMeleeMiss>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>5</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+    <race>
+      <body>DZ_HarpyBody</body>
+      <!-- Share human meat instead of generating a separate "harpy meat" item. -->
+      <useMeatFrom>Human</useMeatFrom>
+    </race>
+    <modExtensions>
+      <li Class="BigAndSmall.RaceExtension">
+        <raceHediff>DZ_HarpyRace</raceHediff>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+</Defs>

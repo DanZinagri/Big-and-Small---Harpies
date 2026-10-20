@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<loadFolders>
+  <v1.6>
+    <li>/</li>
+    <li>1.6</li>
+    <li IfModNotActive="RedMattis.BigSmall.Core">1.6/Mods/NoGenesAndMore</li>
+    <li IfModActive="vanillaracesexpanded.saurid">1.6/Mods/VRESaurid</li>
+    <li IfModActive="sarg.alphagenes">1.6/Mods/AlphaGenes</li>
+  </v1.6>
+  <v1.7>
+    <li>/</li>
+    <li>1.7</li>
+    <li IfModNotActive="RedMattis.BigSmall.Core">1.7/Mods/NoGenesAndMore</li>
+    <li IfModActive="vanillaracesexpanded.saurid">1.7/Mods/VRESaurid</li>
+    <li IfModActive="sarg.alphagenes">1.7/Mods/AlphaGenes</li>
+  </v1.7>
+</loadFolders>

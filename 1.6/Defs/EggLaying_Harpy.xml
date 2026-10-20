@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Hediff added by DZ_HarpyEggLaying through VEF's GeneExtension.hediffToWholeBody.
+       Values copied from Alpha Genes' AG_HumanEggLaying: an egg every 9 days, progress halts at
+       half way until the pawn is fertilized, females only. -->
+  <HediffDef>
+    <defName>DZ_HarpyEggLayer</defName>
+    <label>oviparous</label>
+    <description>Females with this gene will periodically lay eggs when fertilized.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <maxSeverity>1.0</maxSeverity>
+    <isBad>false</isBad>
+    <comps>
+      <li Class="VEF.Genes.HediffCompProperties_HumanEggLayer">
+        <eggFertilizedDef>DZ_HarpyEgg</eggFertilizedDef>
+        <eggLayIntervalDays>9</eggLayIntervalDays>
+        <eggLayFemaleOnly>true</eggLayFemaleOnly>
+        <eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <!-- Fertilized harpy egg. Mirrors Alpha Genes' AG_HumanEggBase + AG_HumanEgg (15 days to hatch,
+       ruins outside 0-50 C, not food). Texture is vanilla's small bird egg. -->
+  <ThingDef ParentName="OrganicProductBase">
+    <defName>DZ_HarpyEgg</defName>
+    <label>harpy egg (fert.)</label>
+    <description>Fertilized harpy egg. If all goes well, it should hatch into a harpy child. Must be kept between 0 and 50 &#186;C.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/AnimalProductRaw/EggBirdSmall</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <stackLimit>1</stackLimit>
+    <ingestible>
+      <foodType>AnimalProduct</foodType>
+      <ingestEffect>EatMeat</ingestEffect>
+      <ingestSound>RawMeat_Eat</ingestSound>
+      <tasteThought>AteRawFood</tasteThought>
+      <preferability>NeverForNutrition</preferability>
+      <canAutoSelectAsFoodForCaravan>false</canAutoSelectAsFoodForCaravan>
+    </ingestible>
+    <socialPropernessMatters>true</socialPropernessMatters>
+    <statBases>
+      <Mass>0.15</Mass>
+      <MaxHitPoints>20</MaxHitPoints>
+      <Flammability>0.7</Flammability>
+      <Nutrition>0.25</Nutrition>
+      <MarketValue>100</MarketValue>
+      <FoodPoisonChanceFixedHuman>0.02</FoodPoisonChanceFixedHuman>
+    </statBases>
+    <allowedArchonexusCount>0</allowedArchonexusCount>
+    <tickerType>Normal</tickerType>
+    <thingCategories>
+      <li>EggsFertilized</li>
+    </thingCategories>
+    <comps>
+      <li Class="CompProperties_TemperatureRuinable">
+        <minSafeTemperature>0</minSafeTemperature>
+        <maxSafeTemperature>50</maxSafeTemperature>
+        <progressPerDegreePerTick>0.00003</progressPerDegreePerTick>
+      </li>
+      <li Class="VEF.Genes.CompProperties_HumanHatcher">
+        <hatcherDaystoHatch>15</hatcherDaystoHatch>
+      </li>
+    </comps>
+  </ThingDef>
+
+</Defs>

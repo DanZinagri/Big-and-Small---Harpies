@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Blood harpy hair. Vanilla has ink-black (25, 25, 25) but no blue-black, and Alpha Genes has no
+       black at all, so this one is ours only (no swap, no cherry-pick). No random brightness, like
+       vanilla ink-black, so the sheen stays dark. -->
+  <GeneDef ParentName="GeneHairColorBase">
+    <defName>DZ_Hair_RavenBlack</defName>
+    <label>raven black hair</label>
+    <hairColorOverride>(28, 30, 44)</hairColorOverride>
+    <selectionWeight>0</selectionWeight>
+    <displayOrderInCategory>131</displayOrderInCategory>
+    <randomBrightnessFactor>0</randomBrightnessFactor>
+  </GeneDef>
+
+  <!-- Vermillion harpy hair. Copy of Alpha Genes' AG_Hair_DeepRed (same colour) so it works without
+       Alpha Genes. When Alpha Genes is loaded, Mods/AlphaGenes swaps xenotypes to AG_Hair_DeepRed and
+       puts this gene on our Cherry Picker basics list (CherryPicker.xml). -->
+  <GeneDef ParentName="GeneHairColorBase">
+    <defName>DZ_Hair_DeepRed</defName>
+    <label>deep red hair</label>
+    <hairColorOverride>(219, 29, 29)</hairColorOverride>
+    <selectionWeight>0</selectionWeight>
+    <displayOrderInCategory>201</displayOrderInCategory>
+  </GeneDef>
+
+</Defs>

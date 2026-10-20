@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Vermillion harpy revival: a special death refusal (BigSmallHarpies.dll).
+       Hediff: inherits Anomaly's DeathRefusal def (same corpse gizmo, AI auto-revive, label "N use")
+       but uses Hediff_VermillionRebirth, whose revival skips the 10% scar chance and the 24-hour
+       death refusal sickness (and with it the -8 mood thought), and erupts in a fire burst
+       (flame explosion + burning fuel, radius 5.9, same as phoenix resurgence). Holds 1 use.
+       Gene: Gene_VermillionRebirth grants the hediff whenever the pawn has none, checking on a timer
+       of rechargeTicks (default 10000-120000 = about 4 hours to 2 days, same as the framework's
+       GreaterDeathless it replaces). Removing the gene removes the hediff.
+       Anomaly only, like vanilla death refusal: both defs carry MayRequire, and xenotypes list the
+       gene with the same MayRequire. -->
+  <HediffDef ParentName="DeathRefusal" MayRequire="Ludeon.RimWorld.Anomaly">
+    <defName>DZ_VermillionDeathRefusal</defName>
+    <label>vermillion rebirth</label>
+    <hediffClass>BigSmallHarpies.Hediff_VermillionRebirth</hediffClass>
+    <description>Archotech machines woven through this harpy's body can rebuild it after death. The body reforms in a burst of flame, without scars or lingering sickness.</description>
+  </HediffDef>
+
+  <GeneDef MayRequire="Ludeon.RimWorld.Anomaly">
+    <defName>DZ_VermillionRebirth</defName>
+    <label>vermillion rebirth</label>
+    <description>Carriers of this gene carry archotech machines that can rebuild them after death in a burst of flame. The machines slowly regrow after each use, granting another chance to return.</description>
+    <iconPath>UI/Abilities/SelfResurrect</iconPath>
+    <displayCategory>Archite</displayCategory>
+    <displayOrderInCategory>200</displayOrderInCategory>
+    <geneClass>BigSmallHarpies.Gene_VermillionRebirth</geneClass>
+    <biostatArc>1</biostatArc>
+    <biostatCpx>3</biostatCpx>
+    <selectionWeight>0</selectionWeight>
+    <customEffectDescriptions>
+      <li>Gains one use of vermillion rebirth whenever they have none, every few hours to two days.</li>
+      <li>Self-resurrection after death in a burst of flame around the harpy. No scars and no death refusal sickness.</li>
+    </customEffectDescriptions>
+    <descriptionHyperlinks>
+      <HediffDef>DZ_VermillionDeathRefusal</HediffDef>
+    </descriptionHyperlinks>
+    <modExtensions>
+      <li Class="BigSmallHarpies.VermillionRebirthExtension">
+        <hediff>DZ_VermillionDeathRefusal</hediff>
+        <rechargeTicks>10000~120000</rechargeTicks>
+      </li>
+    </modExtensions>
+  </GeneDef>
+
+</Defs>

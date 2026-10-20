@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Cherry Picker lists owned by this mod (same convention as MMMM Convergence). Our duplicate genes
+       are only retired when the mod they copy is loaded: those load folders append them to _Basics
+       (Mods/VRESaurid: DZ_HarpyEggLaying, Mods/AlphaGenes: DZ_Hair_DeepRed). Cherry Picker removes
+       everything in a list once the list itself is unchecked, so a player unchecks _Basics once.
+       _All names every duplicate we ship; unchecking then re-checking it revives them. -->
+  <CherryPicker.DefList MayRequire="Owlchemist.CherryPicker">
+    <defName>DZ_Harpies_CherryPicker_Basics</defName>
+    <label>Big and Small - Harpies: uncheck this to remove genes duplicated by other installed mods</label>
+    <defs>
+    </defs>
+  </CherryPicker.DefList>
+
+  <CherryPicker.DefList MayRequire="Owlchemist.CherryPicker">
+    <defName>DZ_Harpies_CherryPicker_All</defName>
+    <label>Big and Small - Harpies: uncheck then re-check this to revive every duplicate gene</label>
+    <defs>
+      <li>GeneDef/DZ_HarpyEggLaying</li>
+      <li>GeneDef/DZ_Hair_DeepRed</li>
+    </defs>
+  </CherryPicker.DefList>
+
+</Defs>

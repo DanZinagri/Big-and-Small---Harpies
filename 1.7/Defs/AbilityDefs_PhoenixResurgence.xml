@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Phoenix resurgence: vanilla Biotech FireBurst (the super-heavy mech's burst of burning fuel in a
+       5.9-cell radius, same warmup, effecter and icon) plus a healing hediff on the caster.
+       Cooldown 60000 ticks = 1 day. The vermillion harpy itself takes no fire damage and cannot be set
+       alight (DZ_VermillionHarpyWings), but allies inside the radius can burn.
+       Heal: VEF regeneration comp heals EVERY injury by 1.5 every 60 ticks while the hediff lasts.
+       Ability_Duration 30 s = 1800 ticks -> 30 pulses = 45 HP per injury, enough to close almost any
+       wound. It does not regrow lost body parts. -->
+
+  <AbilityDef>
+    <defName>DZ_PhoenixResurgence</defName>
+    <label>phoenix resurgence</label>
+    <description>Erupt in a burst of burning fuel in all directions, setting the area around you ablaze, while the flames knit your own wounds closed.</description>
+    <jobDef>CastAbilityOnThingWithoutWeapon</jobDef>
+    <iconPath>UI/Abilities/FireBurst</iconPath>
+    <cooldownTicksRange>60000</cooldownTicksRange>
+    <sendMessageOnCooldownComplete>true</sendMessageOnCooldownComplete>
+    <aiCanUse>true</aiCanUse>
+    <ai_SearchAOEForTargets>true</ai_SearchAOEForTargets>
+    <targetRequired>false</targetRequired>
+    <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+    <showCastingProgressBar>true</showCastingProgressBar>
+    <statBases>
+      <Ability_Duration>30</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <warmupEffecter>Fire_Burst_Warmup</warmupEffecter>
+      <warmupTime>3</warmupTime>
+      <requireLineOfSight>false</requireLineOfSight>
+      <range>5.9</range>
+      <drawAimPie>false</drawAimPie>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityFireBurst">
+        <radius>5.9</radius>
+      </li>
+      <li Class="CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>DZ_PhoenixResurgence</hediffDef>
+        <replaceExisting>true</replaceExisting>
+        <onlyApplyToSelf>true</onlyApplyToSelf>
+      </li>
+    </comps>
+  </AbilityDef>
+
+  <HediffDef>
+    <defName>DZ_PhoenixResurgence</defName>
+    <label>phoenix resurgence</label>
+    <description>Flames are knitting this person's wounds closed.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <everCurableByItem>false</everCurableByItem>
+    <defaultLabelColor>(1.0, 0.55, 0.2)</defaultLabelColor>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+      <li Class="VEF.AnimalBehaviours.HediffCompProperties_Regeneration">
+        <rateInTicks>60</rateInTicks>
+        <healAmount>1.5</healAmount>
+        <healAll>true</healAll>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <!-- Only works alongside the vermillion harpy wings: the framework's GenePrerequisites keeps it
+       inactive otherwise (vanilla's prerequisite field is display-only in 1.6/1.7). -->
+  <GeneDef>
+    <defName>DZ_PhoenixResurgence</defName>
+    <label>phoenix resurgence</label>
+    <description>Carriers can erupt in a burst of flame once a day, setting their surroundings ablaze while their own wounds close. Requires vermillion harpy wings.</description>
+    <iconPath>UI/Abilities/FireBurst</iconPath>
+    <prerequisite>DZ_VermillionHarpyWings</prerequisite>
+    <displayCategory>Ability</displayCategory>
+    <abilities>
+      <li>DZ_PhoenixResurgence</li>
+    </abilities>
+    <descriptionHyperlinks>
+      <AbilityDef>DZ_PhoenixResurgence</AbilityDef>
+    </descriptionHyperlinks>
+    <biostatCpx>2</biostatCpx>
+    <biostatMet>-1</biostatMet>
+    <selectionWeight>0</selectionWeight>
+    <modExtensions>
+      <li Class="BigAndSmall.GenePrerequisites">
+        <prerequisiteSets>
+          <li>
+            <type>AllOf</type>
+            <prerequisites>
+              <li>DZ_VermillionHarpyWings</li>
+            </prerequisites>
+          </li>
+        </prerequisiteSets>
+      </li>
+    </modExtensions>
+  </GeneDef>
+
+</Defs>

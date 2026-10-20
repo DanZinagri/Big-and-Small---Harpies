@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- VRE Saurid is loaded: every xenotype that lists our egg laying gene uses VRE Saurid's oviparous
+       gene instead. Our gene's costs match it (cpx 2, met -1), so only the gene shown changes. This
+       matches MMMM Convergence - Genetics, where VRE Saurid's gene wins over Alpha Genes' AG_EggLaying.
+       VRE Saurid keys its egg logic on the gene alone (HasGene), so it works on the harpy race.
+       success Always: no error if a user edit has removed the gene from every xenotype. -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/XenotypeDef/genes/li[text()="DZ_HarpyEggLaying"]</xpath>
+    <value>
+      <li>VRESaurids_Oviparous</li>
+    </value>
+    <success>Always</success>
+  </Operation>
+
+  <!-- Retire our copy through Cherry Picker when it is installed (see Defs/CherryPicker.xml).
+       MayRequire only works on a sequence item, not on a top-level Operation. -->
+  <Operation Class="PatchOperationSequence">
+    <operations>
+      <li Class="PatchOperationAdd" MayRequire="Owlchemist.CherryPicker">
+        <xpath>Defs/CherryPicker.DefList[defName="DZ_Harpies_CherryPicker_Basics"]/defs</xpath>
+        <value>
+          <li>GeneDef/DZ_HarpyEggLaying</li>
+        </value>
+      </li>
+    </operations>
+  </Operation>
+
+</Patch>

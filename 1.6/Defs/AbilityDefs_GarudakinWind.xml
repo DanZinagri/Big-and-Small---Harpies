@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Garudakin wind abilities. Damage is applied by BigSmallHarpies.CompAbilityEffect_WindDamage
+       (radius 0 = the targeted pawn, radius > 0 = every pawn around the caster except the caster,
+       or only enemies with hostilesOnly).
+       Knockback comes from the damage types below: vanilla blunt (BluntBase) with VEF's
+       DamageWorker_PushBackAttackMelee, which shoves the victim away from the caster by
+       DamageExtension.pushBackDistance cells and plays fleckOnDamage on the victim. -->
+
+  <DamageDef ParentName="BluntBase">
+    <defName>DZ_WindBlast</defName>
+    <label>wind blast</label>
+    <workerClass>VEF.Weapons.DamageWorker_PushBackAttackMelee</workerClass>
+    <deathMessage>{0} has been battered to death by a gale.</deathMessage>
+    <modExtensions>
+      <li Class="VEF.Weapons.DamageExtension">
+        <pushBackDistance>3~4</pushBackDistance>
+        <fleckOnDamage>AirPuff</fleckOnDamage>
+        <fleckRadius>3</fleckRadius>
+      </li>
+    </modExtensions>
+  </DamageDef>
+
+  <DamageDef ParentName="BluntBase">
+    <defName>DZ_WindStorm</defName>
+    <label>wind storm</label>
+    <workerClass>VEF.Weapons.DamageWorker_PushBackAttackMelee</workerClass>
+    <deathMessage>{0} has been battered to death by a gale.</deathMessage>
+    <modExtensions>
+      <li Class="VEF.Weapons.DamageExtension">
+        <pushBackDistance>2~3</pushBackDistance>
+        <fleckOnDamage>AirPuff</fleckOnDamage>
+        <fleckRadius>3</fleckRadius>
+      </li>
+    </modExtensions>
+  </DamageDef>
+
+  <!-- Windblast: one target within 9.9 cells, 12 blunt + knockback. Cooldown 2500 ticks = 1 hour. -->
+  <AbilityDef>
+    <defName>DZ_GarudakinWindblast</defName>
+    <label>windblast</label>
+    <description>Beat the wings in one violent stroke, hurling a blast of wind that batters a single target and knocks it back.</description>
+    <iconPath>DZ/Harpy/UI/Ability_Windblast</iconPath>
+    <cooldownTicksRange>2500</cooldownTicksRange>
+    <aiCanUse>true</aiCanUse>
+    <hostile>true</hostile>
+    <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <range>9.9</range>
+      <warmupTime>0.5</warmupTime>
+      <requireLineOfSight>true</requireLineOfSight>
+      <targetParams>
+        <canTargetPawns>true</canTargetPawns>
+        <canTargetLocations>false</canTargetLocations>
+        <canTargetBuildings>false</canTargetBuildings>
+        <canTargetSelf>false</canTargetSelf>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="BigSmallHarpies.CompProperties_AbilityWindDamage">
+        <damageDef>DZ_WindBlast</damageDef>
+        <damageAmount>12</damageAmount>
+        <armorPenetration>0.1</armorPenetration>
+        <!-- Stun after the knockback, in ticks (120 = 2 seconds). -->
+        <stunTicks>120</stunTicks>
+      </li>
+    </comps>
+  </AbilityDef>
+
+  <!-- Windstorm: every pawn within 5.9 cells of the caster, allies included (only the caster is
+       spared), 10 blunt + knockback. Cooldown 60000 ticks = 1 day. On cast: vanilla psycast area
+       distortion scaled to the radius, two rings of air puffs and dust, and the long-jump whoosh. -->
+  <AbilityDef>
+    <defName>DZ_GarudakinWindstorm</defName>
+    <label>windstorm</label>
+    <description>Whip the wings into a howling storm that batters everyone nearby, friend or foe, and flings them away.</description>
+    <iconPath>DZ/Harpy/UI/Ability_Windstorm</iconPath>
+    <cooldownTicksRange>60000</cooldownTicksRange>
+    <sendMessageOnCooldownComplete>true</sendMessageOnCooldownComplete>
+    <aiCanUse>true</aiCanUse>
+    <ai_SearchAOEForTargets>true</ai_SearchAOEForTargets>
+    <targetRequired>false</targetRequired>
+    <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+    <showCastingProgressBar>true</showCastingProgressBar>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <warmupTime>1.5</warmupTime>
+      <soundCast>Longjump_Jump</soundCast>
+      <requireLineOfSight>false</requireLineOfSight>
+      <range>5.9</range>
+      <drawAimPie>false</drawAimPie>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="BigSmallHarpies.CompProperties_AbilityWindDamage">
+        <damageDef>DZ_WindStorm</damageDef>
+        <damageAmount>10</damageAmount>
+        <armorPenetration>0.1</armorPenetration>
+        <!-- Stun after the knockback, in ticks (120 = 2 seconds). -->
+        <stunTicks>120</stunTicks>
+        <radius>5.9</radius>
+        <hostilesOnly>false</hostilesOnly>
+        <castFleck>PsycastAreaEffect</castFleck>
+        <ringFlecks>
+          <li>AirPuff</li>
+          <li>DustPuffThick</li>
+        </ringFlecks>
+        <ringFleckCount>12</ringFleckCount>
+        <ringFleckScale>1.5</ringFleckScale>
+      </li>
+    </comps>
+  </AbilityDef>
+
+  <!-- Both abilities only work alongside the garudakin wings: the framework's GenePrerequisites keeps
+       the gene inactive otherwise (vanilla's prerequisite field is display-only). -->
+  <GeneDef>
+    <defName>DZ_GarudakinWindblast</defName>
+    <label>windblast</label>
+    <description>Carriers can hurl a blast of wind from their wings that batters and knocks back a single target. Requires garudakin wings.</description>
+    <iconPath>DZ/Harpy/UI/Ability_Windblast</iconPath>
+    <prerequisite>DZ_GarudakinHarpyWings</prerequisite>
+    <displayCategory>Ability</displayCategory>
+    <abilities>
+      <li>DZ_GarudakinWindblast</li>
+    </abilities>
+    <descriptionHyperlinks>
+      <AbilityDef>DZ_GarudakinWindblast</AbilityDef>
+    </descriptionHyperlinks>
+    <biostatCpx>1</biostatCpx>
+    <biostatMet>-1</biostatMet>
+    <selectionWeight>0</selectionWeight>
+    <modExtensions>
+      <li Class="BigAndSmall.GenePrerequisites">
+        <prerequisiteSets>
+          <li>
+            <type>AllOf</type>
+            <prerequisites>
+              <li>DZ_GarudakinHarpyWings</li>
+            </prerequisites>
+          </li>
+        </prerequisiteSets>
+      </li>
+    </modExtensions>
+  </GeneDef>
+
+  <GeneDef>
+    <defName>DZ_GarudakinWindstorm</defName>
+    <label>windstorm</label>
+    <description>Carriers can whip their wings into a storm that batters and flings away everyone around them, friend or foe, once a day. Requires garudakin wings.</description>
+    <iconPath>DZ/Harpy/UI/Ability_Windstorm</iconPath>
+    <prerequisite>DZ_GarudakinHarpyWings</prerequisite>
+    <displayCategory>Ability</displayCategory>
+    <abilities>
+      <li>DZ_GarudakinWindstorm</li>
+    </abilities>
+    <descriptionHyperlinks>
+      <AbilityDef>DZ_GarudakinWindstorm</AbilityDef>
+    </descriptionHyperlinks>
+    <biostatCpx>2</biostatCpx>
+    <biostatMet>-1</biostatMet>
+    <selectionWeight>0</selectionWeight>
+    <modExtensions>
+      <li Class="BigAndSmall.GenePrerequisites">
+        <prerequisiteSets>
+          <li>
+            <type>AllOf</type>
+            <prerequisites>
+              <li>DZ_GarudakinHarpyWings</li>
+            </prerequisites>
+          </li>
+        </prerequisiteSets>
+      </li>
+    </modExtensions>
+  </GeneDef>
+
+</Defs>
