@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Atavism Libraries (DanZinagri.AtavismLibraries) integration; this folder only loads with it.
+       Every harpy is born as its mother's xenotype: InheritanceMode "excess" gives the baby the full
+       target xenotype plus the mother's own extra endogenes, and nothing from the father, so no hybrids.
+       Matched on the genetic mother's xenotype, chance 1. order 1000 puts these last, so any rarer
+       atavism another mod adds for a harpy xenotype still gets its roll first.
+       Harpies hatch from eggs: Atavism Libraries applies these to VEF eggs (our egg laying) and to
+       VRE Saurid eggs as well as to live births (its EggHatchCompat, 1.7 build). -->
+
+  <AtavismLibraries.GeneticAtavismDef>
+    <defName>DZ_Atavism_GarudakinHarpy</defName>
+    <sourceXenotype>DZ_GarudakinHarpy</sourceXenotype>
+    <targetXenotype>DZ_GarudakinHarpy</targetXenotype>
+    <chance>1</chance>
+    <InheritanceMode>excess</InheritanceMode>
+    <order>1000</order>
+  </AtavismLibraries.GeneticAtavismDef>
+
+  <AtavismLibraries.GeneticAtavismDef>
+    <defName>DZ_Atavism_LandHarpy</defName>
+    <sourceXenotype>DZ_LandHarpy</sourceXenotype>
+    <targetXenotype>DZ_LandHarpy</targetXenotype>
+    <chance>1</chance>
+    <InheritanceMode>excess</InheritanceMode>
+    <order>1000</order>
+  </AtavismLibraries.GeneticAtavismDef>
+
+  <AtavismLibraries.GeneticAtavismDef>
+    <defName>DZ_Atavism_RaptorHarpy</defName>
+    <sourceXenotype>DZ_RaptorHarpy</sourceXenotype>
+    <targetXenotype>DZ_RaptorHarpy</targetXenotype>
+    <chance>1</chance>
+    <InheritanceMode>excess</InheritanceMode>
+    <order>1000</order>
+  </AtavismLibraries.GeneticAtavismDef>
+
+  <AtavismLibraries.GeneticAtavismDef>
+    <defName>DZ_Atavism_PoultryHarpy</defName>
+    <sourceXenotype>DZ_PoultryHarpy</sourceXenotype>
+    <targetXenotype>DZ_PoultryHarpy</targetXenotype>
+    <chance>1</chance>
+    <InheritanceMode>excess</InheritanceMode>
+    <order>1000</order>
+  </AtavismLibraries.GeneticAtavismDef>
+
+  <AtavismLibraries.GeneticAtavismDef>
+    <defName>DZ_Atavism_BloodHarpy</defName>
+    <sourceXenotype>DZ_BloodHarpy</sourceXenotype>
+    <targetXenotype>DZ_BloodHarpy</targetXenotype>
+    <chance>1</chance>
+    <InheritanceMode>excess</InheritanceMode>
+    <order>1000</order>
+  </AtavismLibraries.GeneticAtavismDef>
+
+  <AtavismLibraries.GeneticAtavismDef>
+    <defName>DZ_Atavism_VermillionHarpy</defName>
+    <sourceXenotype>DZ_VermillionHarpy</sourceXenotype>
+    <targetXenotype>DZ_VermillionHarpy</targetXenotype>
+    <chance>1</chance>
+    <InheritanceMode>excess</InheritanceMode>
+    <order>1000</order>
+  </AtavismLibraries.GeneticAtavismDef>
+
+</Defs>
