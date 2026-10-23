@@ -7,6 +7,7 @@
     <li IfModActive="vanillaracesexpanded.saurid">1.6/Mods/VRESaurid</li>
     <li IfModActive="sarg.alphagenes">1.6/Mods/AlphaGenes</li>
     <li IfModActive="DanZinagri.AtavismLibraries">1.6/Mods/AtavismLibraries</li>
+    <li IfModActive="LovelyDovey.Sex.WithRosaline">1.6/Mods/IntimacyGenderWorks</li>
   </v1.6>
   <v1.7>
     <li>/</li>
@@ -15,5 +16,6 @@
     <li IfModActive="vanillaracesexpanded.saurid">1.7/Mods/VRESaurid</li>
     <li IfModActive="sarg.alphagenes">1.7/Mods/AlphaGenes</li>
     <li IfModActive="DanZinagri.AtavismLibraries">1.7/Mods/AtavismLibraries</li>
+    <li IfModActive="LovelyDovey.Sex.WithRosaline">1.7/Mods/IntimacyGenderWorks</li>
   </v1.7>
 </loadFolders>
