@@ -128,6 +128,8 @@
       <li>DZ_HarpyHawkeye</li>
       <li>DZ_HarpyChickenEggs</li>
       <li>DZ_HarpyCowardly</li>
+      <li>DZ_HarpyPoultryMeat</li>
+      <li MayRequire="RedMattis.BigSmall.Core">Cannibal</li>
       <li>DZ_HarpySerpentEnmity</li>
       <!-- hair colour: one of these is picked per pawn -->
       <li>Hair_SnowWhite</li>

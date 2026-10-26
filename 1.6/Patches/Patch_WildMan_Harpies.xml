@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- Adds harpies to the pool the 'wild man wanders in' event draws from.
+       Same collision-safe shape as the Centaurs, Muriden, Roo's Minotaur and Xeno Hive patches: merge
+       into the existing xenotypeChances if another mod already created the node, otherwise build it.
+       Chances are absolute; whatever is left over falls through to Baseliner. About 9% in total, with
+       the ageless archite harpies (blood, vermillion) rarer.
+       Factionless pawns need nothing: XenotypeDef.factionlessGenerationWeight defaults to 1, so every
+       harpy xenotype is already in that pool. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/PawnKindDef[defName="WildMan"]/xenotypeSet</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>/Defs/PawnKindDef[defName="WildMan"]/xenotypeSet/xenotypeChances</xpath>
+      <value>
+        <DZ_GarudakinHarpy>0.02</DZ_GarudakinHarpy>
+        <DZ_LandHarpy>0.02</DZ_LandHarpy>
+        <DZ_RaptorHarpy>0.02</DZ_RaptorHarpy>
+        <DZ_PoultryHarpy>0.02</DZ_PoultryHarpy>
+        <DZ_BloodHarpy>0.005</DZ_BloodHarpy>
+        <DZ_VermillionHarpy>0.005</DZ_VermillionHarpy>
+      </value>
+    </match>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>/Defs/PawnKindDef[defName="WildMan"]</xpath>
+      <value>
+        <xenotypeSet Inherit="True">
+          <xenotypeChances>
+            <DZ_GarudakinHarpy>0.02</DZ_GarudakinHarpy>
+            <DZ_LandHarpy>0.02</DZ_LandHarpy>
+            <DZ_RaptorHarpy>0.02</DZ_RaptorHarpy>
+            <DZ_PoultryHarpy>0.02</DZ_PoultryHarpy>
+            <DZ_BloodHarpy>0.005</DZ_BloodHarpy>
+            <DZ_VermillionHarpy>0.005</DZ_VermillionHarpy>
+          </xenotypeChances>
+        </xenotypeSet>
+      </value>
+    </nomatch>
+  </Operation>
+
+</Patch>

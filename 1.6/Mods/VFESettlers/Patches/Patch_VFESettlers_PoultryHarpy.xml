@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- Vanilla Factions Expanded - Settlers (OskarPotocki.VanillaFactionsExpanded.SettlersModule)
+       integration; this folder only loads with it. Poultry harpies join all three settler factions at
+       5%, the same weight Settlers gives most of its VRE xenotypes (Hussar, Dirtmole, Impid).
+       Appends to each faction's existing xenotypeChances list. -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/FactionDef[defName="SettlerCivil" or defName="SettlerRough" or defName="SettlerSavage"]/xenotypeSet/xenotypeChances</xpath>
+    <value>
+      <DZ_PoultryHarpy>0.05</DZ_PoultryHarpy>
+    </value>
+  </Operation>
+
+</Patch>
