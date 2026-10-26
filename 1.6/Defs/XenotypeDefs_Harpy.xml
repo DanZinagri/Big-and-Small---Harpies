@@ -5,7 +5,7 @@
     <defName>DZ_GarudakinHarpy</defName>
     <label>garudakin harpy</label>
     <description>Small, light harpies descended from the legendary Garuda, whose great wings command the wind itself. They glide easily over rough ground and can hurl blasts of wind that knock enemies aside, but manage tools and fine work poorly.</description>
-    <iconPath>DZ/Harpy/UI/Gene_HarpyWings</iconPath>
+    <iconPath>DZ/Harpy/UI/Xenotype_Harpy</iconPath>
     <inheritable>true</inheritable>
     <combatPowerFactor>1</combatPowerFactor>
     <genes>
@@ -42,7 +42,7 @@
     <defName>DZ_LandHarpy</defName>
     <label>land harpy</label>
     <description>Humanlikes whose arms have become broad feathered wings. Their wings are too small to glide with, so they have become fast runners instead. They strike with their wings, but manage tools and fine work poorly.</description>
-    <iconPath>DZ/Harpy/UI/Gene_HarpyWings</iconPath>
+    <iconPath>DZ/Harpy/UI/Xenotype_Harpy</iconPath>
     <inheritable>true</inheritable>
     <combatPowerFactor>1</combatPowerFactor>
     <genes>
@@ -56,6 +56,9 @@
       <li>DZ_HarpyTalons</li>
       <li>DZ_HarpyBirdBrained</li>
       <li>DarkVision</li>
+      <li>AptitudeStrong_Melee</li>
+      <li>PsychicAbility_Dull</li>
+      <li MayRequire="RedMattis.BigSmall.Core">VU_Pounce</li>
       <li>DZ_HarpyHollowBones</li>
       <li>DZ_HarpyHawkeye</li>
       <li>DZ_HarpySerpentEnmity</li>
@@ -75,7 +78,7 @@
     <defName>DZ_RaptorHarpy</defName>
     <label>raptor harpy</label>
     <description>Humanlikes whose arms have become broad feathered wings. They glide easily over rough ground and strike with their wings, but manage tools and fine work poorly.</description>
-    <iconPath>DZ/Harpy/UI/Gene_HarpyWings</iconPath>
+    <iconPath>DZ/Harpy/UI/Xenotype_Harpy</iconPath>
     <inheritable>true</inheritable>
     <combatPowerFactor>1</combatPowerFactor>
     <genes>
@@ -111,7 +114,7 @@
     <defName>DZ_PoultryHarpy</defName>
     <label>poultry harpy</label>
     <description>Humanlikes whose arms have become broad feathered wings. Their wings are too weak to glide with and they are slow runners. They lay eggs almost every day, and they are very cowardly. They strike with their wings, but manage tools and fine work poorly.</description>
-    <iconPath>DZ/Harpy/UI/Gene_HarpyWings</iconPath>
+    <iconPath>DZ/Harpy/UI/Xenotype_Harpy</iconPath>
     <inheritable>true</inheritable>
     <combatPowerFactor>1</combatPowerFactor>
     <genes>
@@ -147,7 +150,7 @@
     <defName>DZ_BloodHarpy</defName>
     <label>blood harpy</label>
     <description>Humanlikes whose arms have become broad feathered wings and whose bodies run on hemogen. They glide easily over rough ground and strike with their wings, but manage tools and fine work poorly.</description>
-    <iconPath>DZ/Harpy/UI/Gene_HarpyWings</iconPath>
+    <iconPath>DZ/Harpy/UI/Xenotype_Harpy</iconPath>
     <inheritable>true</inheritable>
     <combatPowerFactor>1</combatPowerFactor>
     <genes>
@@ -169,6 +172,7 @@
       <li>Hemogenic</li>
       <li>Bloodfeeder</li>
       <li>DZ_BloodFrenzy</li>
+      <li>LongjumpLegs</li>
       <li>Skin_SheerWhite</li>
       <li>DZ_Hair_RavenBlack</li>
       <li>DZ_HarpySerpentEnmity</li>
@@ -182,7 +186,7 @@
     <defName>DZ_VermillionHarpy</defName>
     <label>vermillion harpy</label>
     <description>Humanlikes whose arms have become broad feathered wings, carrying archotech machines that rebuild them after death. They glide easily over rough ground and strike with their wings, but manage tools and fine work poorly.</description>
-    <iconPath>DZ/Harpy/UI/Gene_HarpyWings</iconPath>
+    <iconPath>DZ/Harpy/UI/Xenotype_Harpy</iconPath>
     <inheritable>true</inheritable>
     <combatPowerFactor>1</combatPowerFactor>
     <genes>

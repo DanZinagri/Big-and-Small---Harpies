@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- Big and Small - Genes & More (RedMattis.BigSmall.Core) integration; this folder only loads with it.
+       Raptor harpies swap vanilla strong melee damage for Genes & More's very strong unarmed. Both
+       inherit GeneMeleeDamageBase, so they exclude each other and must be swapped, not stacked.
+       success Always: no error if a user edit has removed the gene. -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/XenotypeDef[defName="DZ_RaptorHarpy"]/genes/li[text()="MeleeDamage_Strong"]</xpath>
+    <value>
+      <li>BS_Unarmed_VeryStrong</li>
+    </value>
+    <success>Always</success>
+  </Operation>
+
+</Patch>
