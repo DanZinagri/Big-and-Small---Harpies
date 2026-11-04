@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <DZ_Harpies_SettingsCategory>Big and Small - Harpies</DZ_Harpies_SettingsCategory>
+  <DZ_Harpies_UnarmedOnly>Unarmed harpies</DZ_Harpies_UnarmedOnly>
+  <DZ_Harpies_UnarmedOnlyDesc>Adds Genes and More's "unarmed combat only" and "very strong unarmed" genes to every harpy xenotype, so harpies fight with their wings and talons instead of weapons.</DZ_Harpies_UnarmedOnlyDesc>
+  <DZ_Harpies_RestartRequired>Changing this requires restarting the game. Pawns that already exist keep their current genes.</DZ_Harpies_RestartRequired>
+  <DZ_Harpies_UnarmedNeedsGenesAndMore>The unarmed harpies option needs Big and Small - Genes and More.</DZ_Harpies_UnarmedNeedsGenesAndMore>
+</LanguageData>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- "Unarmed harpies" mod setting (default off). Adds Genes & More's unarmed combat only (met +2) and
+       very strong unarmed (met -2) to the harpy xenotypes, cancelling out on metabolism.
+       Raptor harpies already have very strong unarmed from Patch_GenesAndMore_Raptor.xml, and listing it
+       twice would duplicate the gene, so they get great melee (met -3, cpx 2) instead of a detriment alone.
+       Lives in this folder because the unarmed genes are Genes & More's. -->
+  <Operation Class="BigSmallHarpies.PatchOperationIfUnarmedOption">
+    <operations>
+      <li Class="PatchOperationAdd">
+        <xpath>Defs/XenotypeDef[defName="DZ_GarudakinHarpy" or defName="DZ_LandHarpy" or defName="DZ_RaptorHarpy" or defName="DZ_PoultryHarpy" or defName="DZ_BloodHarpy" or defName="DZ_VermillionHarpy"]/genes</xpath>
+        <value>
+          <li>BS_UnarmedOnly</li>
+        </value>
+      </li>
+      <li Class="PatchOperationAdd">
+        <xpath>Defs/XenotypeDef[defName="DZ_GarudakinHarpy" or defName="DZ_LandHarpy" or defName="DZ_PoultryHarpy" or defName="DZ_BloodHarpy" or defName="DZ_VermillionHarpy"]/genes</xpath>
+        <value>
+          <li>BS_Unarmed_VeryStrong</li>
+        </value>
+      </li>
+      <li Class="PatchOperationAdd">
+        <xpath>Defs/XenotypeDef[defName="DZ_RaptorHarpy"]/genes</xpath>
+        <value>
+          <li>AptitudeRemarkable_Melee</li>
+        </value>
+      </li>
+    </operations>
+  </Operation>
+
+</Patch>

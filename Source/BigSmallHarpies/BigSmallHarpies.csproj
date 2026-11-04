@@ -35,6 +35,7 @@
   <ItemGroup Condition="'$(TargetFramework)' == 'net48'">
     <Reference Include="Assembly-CSharp"><HintPath>$(RimWorld16Ref)\Assembly-CSharp.dll</HintPath><Private>false</Private></Reference>
     <Reference Include="UnityEngine.CoreModule"><HintPath>$(RimWorld16Ref)\UnityEngine.CoreModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.IMGUIModule"><HintPath>$(RimWorld16Ref)\UnityEngine.IMGUIModule.dll</HintPath><Private>false</Private></Reference>
     <!-- Unity's CoreModule is built against netstandard 2.1; needed as soon as Unity types (Vector3) are used. -->
     <Reference Include="netstandard"><HintPath>$(RimWorld16Ref)\netstandard.dll</HintPath><Private>false</Private></Reference>
     <Reference Include="0Harmony"><HintPath>$(HarmonyRoot)\1.6\Assemblies\0Harmony.dll</HintPath><Private>false</Private></Reference>
