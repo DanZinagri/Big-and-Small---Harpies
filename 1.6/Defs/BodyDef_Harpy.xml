@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <Defs>
-  <!-- Vanilla Human body with the arm/hand/finger subtree replaced by wing parts. Generated from Core Bodies_Humanlike.xml. -->
+  <!-- Vanilla Human body with the arm/hand/finger subtree replaced by wing parts. Legs, feet and toes use harpy parts, with three toes per foot. Generated from Core Bodies_Humanlike.xml. -->
   <BodyDef>
     <defName>DZ_HarpyBody</defName>
     <label>harpy</label>
@@ -410,7 +410,7 @@
           </groups>
         </li>
         <li>
-          <def>Leg</def>
+          <def>DZ_HarpyLeg</def>
           <customLabel>left leg</customLabel>
           <coverage>0.14</coverage>
           <height>Bottom</height>
@@ -439,7 +439,7 @@
               </groups>
             </li>
             <li>
-              <def>Foot</def>
+              <def>DZ_HarpyFoot</def>
               <customLabel>left foot</customLabel>
               <coverage>0.1</coverage>
               <flipGraphic>true</flipGraphic>
@@ -448,40 +448,24 @@
               </groups>
               <parts>
                 <li>
-                  <def>Toe</def>
-                  <customLabel>left little toe</customLabel>
-                  <coverage>0.06</coverage>
-                  <groups>
-                    <li>Feet</li>
-                  </groups>
-                </li>
-                <li>
-                  <def>Toe</def>
-                  <customLabel>left fourth toe</customLabel>
-                  <coverage>0.07</coverage>
-                  <groups>
-                    <li>Feet</li>
-                  </groups>
-                </li>
-                <li>
-                  <def>Toe</def>
-                  <customLabel>left middle toe</customLabel>
+                  <def>DZ_HarpyTalonToe</def>
+                  <customLabel>left outer toe</customLabel>
                   <coverage>0.08</coverage>
                   <groups>
                     <li>Feet</li>
                   </groups>
                 </li>
                 <li>
-                  <def>Toe</def>
-                  <customLabel>left second toe</customLabel>
+                  <def>DZ_HarpyTalonToe</def>
+                  <customLabel>left middle toe</customLabel>
                   <coverage>0.09</coverage>
                   <groups>
                     <li>Feet</li>
                   </groups>
                 </li>
                 <li>
-                  <def>Toe</def>
-                  <customLabel>left big toe</customLabel>
+                  <def>DZ_HarpyTalonToe</def>
+                  <customLabel>left inner toe</customLabel>
                   <coverage>0.09</coverage>
                   <groups>
                     <li>Feet</li>
@@ -492,7 +476,7 @@
           </parts>
         </li>
         <li>
-          <def>Leg</def>
+          <def>DZ_HarpyLeg</def>
           <customLabel>right leg</customLabel>
           <coverage>0.14</coverage>
           <height>Bottom</height>
@@ -520,7 +504,7 @@
               </groups>
             </li>
             <li>
-              <def>Foot</def>
+              <def>DZ_HarpyFoot</def>
               <customLabel>right foot</customLabel>
               <coverage>0.1</coverage>
               <groups>
@@ -528,40 +512,24 @@
               </groups>
               <parts>
                 <li>
-                  <def>Toe</def>
-                  <customLabel>right little toe</customLabel>
-                  <coverage>0.06</coverage>
-                  <groups>
-                    <li>Feet</li>
-                  </groups>
-                </li>
-                <li>
-                  <def>Toe</def>
-                  <customLabel>right fourth toe</customLabel>
-                  <coverage>0.07</coverage>
-                  <groups>
-                    <li>Feet</li>
-                  </groups>
-                </li>
-                <li>
-                  <def>Toe</def>
-                  <customLabel>right middle toe</customLabel>
+                  <def>DZ_HarpyTalonToe</def>
+                  <customLabel>right outer toe</customLabel>
                   <coverage>0.08</coverage>
                   <groups>
                     <li>Feet</li>
                   </groups>
                 </li>
                 <li>
-                  <def>Toe</def>
-                  <customLabel>right second toe</customLabel>
+                  <def>DZ_HarpyTalonToe</def>
+                  <customLabel>right middle toe</customLabel>
                   <coverage>0.09</coverage>
                   <groups>
                     <li>Feet</li>
                   </groups>
                 </li>
                 <li>
-                  <def>Toe</def>
-                  <customLabel>right big toe</customLabel>
+                  <def>DZ_HarpyTalonToe</def>
+                  <customLabel>right inner toe</customLabel>
                   <coverage>0.09</coverage>
                   <groups>
                     <li>Feet</li>

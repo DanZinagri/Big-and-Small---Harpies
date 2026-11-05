@@ -2,7 +2,8 @@
 <Defs>
 
   <!-- Race tracker hediff. The framework adds it to any pawn whose ThingDef is DZ_Harpy.
-       The manipulation penalty lives here so it is tied to actually having wings for arms. -->
+       The manipulation penalty lives here so it is tied to actually having wings for arms. It is a factor,
+       not an offset, so it keeps the 75/25 feet-to-wings split: an offset would come off the wings' share. -->
   <HediffDef ParentName="BS_DefaultRaceTracker">
     <defName>DZ_HarpyRace</defName>
     <label>harpy</label>
@@ -12,7 +13,7 @@
         <capMods>
           <li>
             <capacity>Manipulation</capacity>
-            <offset>-0.25</offset>
+            <postFactor>0.75</postFactor>
           </li>
         </capMods>
       </li>

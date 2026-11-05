@@ -3,8 +3,10 @@
 
   <!-- Talons on the feet. Humanlikes have no foot attack in vanilla (only fists, teeth, head), so this
        follows the Catfolk claws pattern: the framework's PawnExtension.applyPartHediff puts one talon
-       hediff on each Foot, and the hediff's VerbGiver supplies the melee tool. Losing a foot loses
-       that talon. Two entries = two feet. -->
+       hediff on each foot, and the hediff's VerbGiver supplies the melee tool. Losing a foot loses
+       that talon. Parts match by def, and each match gets one talon: harpies have DZ_HarpyFoot, and
+       anyone else carrying the gene has the vanilla Foot.
+       With the race's x0.75, the x1.0667 here makes a healthy harpy's manipulation exactly 80%. -->
   <GeneDef>
     <defName>DZ_HarpyTalons</defName>
     <label>harpy talons</label>
@@ -18,7 +20,7 @@
     <capMods>
       <li>
         <capacity>Manipulation</capacity>
-        <offset>0.05</offset>
+        <postFactor>1.0667</postFactor>
       </li>
     </capMods>
     <modExtensions>
@@ -28,7 +30,7 @@
             <hediff>DZ_HarpyTalons</hediff>
             <bodyparts>
               <li>Foot</li>
-              <li>Foot</li>
+              <li>DZ_HarpyFoot</li>
             </bodyparts>
           </li>
         </applyPartHediff>

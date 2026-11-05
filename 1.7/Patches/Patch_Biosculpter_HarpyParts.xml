@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- The biosculpter's regeneration cycle restores parts from a fixed def list that names vanilla Finger
+       and Toe, so it needs the harpy equivalents too. success Always: the pod only exists with Ideology. -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="BiosculpterPod"]/comps/li/bodyPartsToRestore</xpath>
+    <value>
+      <li>DZ_HarpyDigit</li>
+      <li>DZ_HarpyTalonToe</li>
+    </value>
+    <success>Always</success>
+  </Operation>
+
+</Patch>

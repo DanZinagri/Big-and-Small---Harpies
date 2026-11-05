@@ -3,7 +3,7 @@
 
   <!-- Wing parts that stand in for Arm / Hand / Finger on the harpy body.
        Values mirror the vanilla parts they replace; importAllRecipesFrom lets
-       prosthetic and bionic arm/hand surgeries target the wings. -->
+       prosthetic and bionic surgeries target the harpy parts. -->
 
   <BodyPartDef>
     <defName>DZ_HarpyWing</defName>
@@ -54,6 +54,66 @@
     <modExtensions>
       <li Class="BigAndSmall.BodyPartExtension">
         <importAllRecipesFrom><li>Finger</li></importAllRecipesFrom>
+      </li>
+    </modExtensions>
+  </BodyPartDef>
+
+  <!-- Harpies do their fine work with their feet. Manipulation averages every ManipulationLimbCore equally,
+       so the three toes on each foot against one per wing give a 75/25 split between feet and wings. The leg
+       and foot count as segments, so their injuries reduce all three toes on that side. Walking tags match
+       the vanilla parts, and hit points are vanilla +50%. -->
+
+  <BodyPartDef>
+    <defName>DZ_HarpyLeg</defName>
+    <label>leg</label>
+    <hitPoints>45</hitPoints>
+    <skinCovered>true</skinCovered>
+    <canScarify>true</canScarify>
+    <tags>
+      <li>MovingLimbCore</li>
+      <li>ManipulationLimbSegment</li>
+    </tags>
+    <modExtensions>
+      <li Class="BigAndSmall.BodyPartExtension">
+        <importAllRecipesFrom><li>Leg</li></importAllRecipesFrom>
+      </li>
+    </modExtensions>
+  </BodyPartDef>
+
+  <BodyPartDef>
+    <defName>DZ_HarpyFoot</defName>
+    <label>foot</label>
+    <hitPoints>38</hitPoints>
+    <frostbiteVulnerability>0.5</frostbiteVulnerability>
+    <skinCovered>true</skinCovered>
+    <canBeVacuumBurnt>false</canBeVacuumBurnt>
+    <tags>
+      <li>MovingLimbSegment</li>
+      <li>ManipulationLimbSegment</li>
+    </tags>
+    <modExtensions>
+      <li Class="BigAndSmall.BodyPartExtension">
+        <importAllRecipesFrom><li>Foot</li></importAllRecipesFrom>
+      </li>
+    </modExtensions>
+  </BodyPartDef>
+
+  <BodyPartDef>
+    <defName>DZ_HarpyTalonToe</defName>
+    <label>toe</label>
+    <hitPoints>12</hitPoints>
+    <frostbiteVulnerability>10</frostbiteVulnerability>
+    <pawnGeneratorCanAmputate>true</pawnGeneratorCanAmputate>
+    <skinCovered>true</skinCovered>
+    <canBeVacuumBurnt>false</canBeVacuumBurnt>
+    <tags>
+      <li>MovingLimbDigit</li>
+      <li>ManipulationLimbCore</li>
+      <li>Mirrored</li>
+    </tags>
+    <modExtensions>
+      <li Class="BigAndSmall.BodyPartExtension">
+        <importAllRecipesFrom><li>Toe</li></importAllRecipesFrom>
       </li>
     </modExtensions>
   </BodyPartDef>
