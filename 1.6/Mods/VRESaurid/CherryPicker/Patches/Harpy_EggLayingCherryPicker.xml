@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- VRE Saurid and Cherry Picker are both loaded: our egg laying copy goes on the Cherry Picker basics
+       list (see Defs/CherryPicker.xml), since xenotypes use VRE Saurid's oviparous gene instead. -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/CherryPicker.DefList[defName="DZ_Harpies_CherryPicker_Basics"]/defs</xpath>
+    <value>
+      <li>GeneDef/DZ_HarpyEggLaying</li>
+    </value>
+  </Operation>
+
+</Patch>

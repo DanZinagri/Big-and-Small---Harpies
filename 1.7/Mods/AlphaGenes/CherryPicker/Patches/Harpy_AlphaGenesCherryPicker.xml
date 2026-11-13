@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- Alpha Genes and Cherry Picker are both loaded: our deep red hair copy goes on the Cherry Picker
+       basics list (see Defs/CherryPicker.xml), since xenotypes use Alpha Genes' gene instead. -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/CherryPicker.DefList[defName="DZ_Harpies_CherryPicker_Basics"]/defs</xpath>
+    <value>
+      <li>GeneDef/DZ_Hair_DeepRed</li>
+    </value>
+  </Operation>
+
+</Patch>

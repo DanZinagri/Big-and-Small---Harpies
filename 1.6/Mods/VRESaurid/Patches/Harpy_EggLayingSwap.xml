@@ -14,17 +14,4 @@
     <success>Always</success>
   </Operation>
 
-  <!-- Retire our copy through Cherry Picker when it is installed (see Defs/CherryPicker.xml).
-       MayRequire only works on a sequence item, not on a top-level Operation. -->
-  <Operation Class="PatchOperationSequence">
-    <operations>
-      <li Class="PatchOperationAdd" MayRequire="Owlchemist.CherryPicker">
-        <xpath>Defs/CherryPicker.DefList[defName="DZ_Harpies_CherryPicker_Basics"]/defs</xpath>
-        <value>
-          <li>GeneDef/DZ_HarpyEggLaying</li>
-        </value>
-      </li>
-    </operations>
-  </Operation>
-
 </Patch>

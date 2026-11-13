@@ -11,8 +11,12 @@
     <hitPoints>30</hitPoints>
     <skinCovered>true</skinCovered>
     <canScarify>true</canScarify>
+    <!-- MovingLimbCore: harpies also get around on their wings, so moving averages two wings and two legs
+         (50/50). It can't go lower for the wings: vanilla gives 0% moving once fewer than half the moving
+         cores work, so a legless harpy only keeps moving if the wings are at least half of them. -->
     <tags>
       <li>ManipulationLimbCore</li>
+      <li>MovingLimbCore</li>
       <li>Mirrored</li>
     </tags>
     <modExtensions>
